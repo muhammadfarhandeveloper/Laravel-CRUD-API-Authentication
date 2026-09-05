@@ -1,66 +1,285 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Products API & CRUD with Authentication
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel project demonstrating a clean and maintainable approach to building a **Products CRUD API and web-based CRUD views** using the **Repository Pattern**.
 
-## About Laravel
+The project also includes **authentication using Laravel Sanctum** for API authentication and **Laravel Breeze** for ready-to-use Login and Registration views.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+* Products CRUD API
+* Products CRUD Web Views
+* Create, Read, Update, and Delete Products
+* Repository Pattern implementation
+* Separation of business logic from controllers
+* Laravel Sanctum authentication
+* User Registration
+* User Login
+* User Logout
+* Laravel Breeze authentication views
+* API authentication using Bearer Tokens
+* Validation for product data
+* Clean and reusable code structure
+* Reduced code repetition using the Repository Pattern
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠️ Technologies Used
 
-## Learning Laravel
+* **Laravel**
+* **PHP**
+* **MySQL**
+* **Laravel Sanctum**
+* **Laravel Breeze**
+* **Blade**
+* **RESTful API**
+* **Repository Pattern**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📁 Project Structure
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+The project follows a Repository Pattern architecture to keep the code clean, reusable, and maintainable.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> The exact structure may vary depending on the Laravel version and project implementation.
 
-## Laravel Sponsors
+## 🔐 Authentication
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Authentication is implemented using **Laravel Sanctum**.
 
-### Premium Partners
+The project provides API authentication functionality for:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+* Register
+* Login
+* Logout
 
-## Contributing
+After successful login, Sanctum authentication is used to protect API routes.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Laravel Breeze is also used to provide the web-based authentication views for:
 
-## Code of Conduct
+* Login
+* Register
+* Authentication-related pages
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📦 Product CRUD
 
-## Security Vulnerabilities
+The application provides complete CRUD functionality for Products.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### API Operations
 
-## License
+| Method    | Endpoint             | Description          |
+| --------- | -------------------- | -------------------- |
+| GET       | `/api/products`      | Get all products     |
+| GET       | `/api/products/{id}` | Get a single product |
+| POST      | `/api/products`      | Create a product     |
+| PUT/PATCH | `/api/products/{id}` | Update a product     |
+| DELETE    | `/api/products/{id}` | Delete a product     |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+> Update the endpoints above if your actual route names are different.
+
+## 🏗️ Repository Pattern
+
+The **Repository Pattern** is used to separate data-access logic from controllers.
+
+Instead of putting database operations directly inside the controller, product-related database operations are handled through the repository.
+
+### Without Repository Pattern
+
+```text
+Controller
+    ↓
+Database
+```
+
+### With Repository Pattern
+
+```text
+Controller
+    ↓
+Repository
+    ↓
+Model
+    ↓
+Database
+```
+
+This approach helps to:
+
+* Reduce code repetition
+* Keep controllers clean
+* Improve maintainability
+* Make code more reusable
+* Separate responsibilities
+* Make future changes easier
+
+## ⚙️ Installation
+
+Follow these steps to run the project locally.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/muhammadfarhandeveloper/Laravel-CRUD-API-Authentication.git
+```
+
+### 2. Navigate to the Project
+
+```bash
+cd Laravel-CRUD-API-Authentication
+```
+
+### 3. Install PHP Dependencies
+
+```bash
+composer install
+```
+
+### 4. Install Frontend Dependencies
+
+```bash
+npm install
+```
+
+### 5. Create Environment File
+
+```bash
+cp .env.example .env
+```
+
+For Windows, you can manually copy `.env.example` and rename it to `.env`.
+
+### 6. Generate Application Key
+
+```bash
+php artisan key:generate
+```
+
+### 7. Configure Database
+
+Open the `.env` file and configure your database credentials:
+
+```env
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_username
+DB_PASSWORD=your_database_password
+```
+
+### 8. Run Migrations
+
+```bash
+php artisan migrate
+```
+
+### 9. Install Dependencies
+
+```bash
+npm install
+```
+
+### 10. Build Frontend Assets
+
+```bash
+npm run build
+```
+
+For development:
+
+```bash
+npm run dev
+```
+
+### 10. Start the Laravel Server
+
+```bash
+php artisan serve
+```
+
+The application will be available at:
+
+```text
+http://127.0.0.1:8000
+```
+
+## 🔑 API Authentication
+
+For protected API routes, first log in through the authentication endpoint and obtain an authentication token.
+
+Then include the token in the request header:
+
+```http
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+Example:
+
+```http
+Accept: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+## 🧪 API Testing
+
+You can test the API using tools such as:
+
+* Postman
+* Insomnia
+* Thunder Client
+* Laravel HTTP Client
+
+Example request:
+
+```http
+GET /api/products
+```
+
+For creating a product:
+
+```http
+POST /api/products
+Content-Type: application/json
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+Example JSON:
+
+```json
+{
+    "name": "Laptop",
+    "description": "A powerful development laptop",
+    "price": 1200,
+    "stock": 23,
+    "status" : true
+}
+```
+
+## 🎯 Project Purpose
+
+The main purpose of this project is to demonstrate how to build a Laravel application with:
+
+1. RESTful API development
+2. Web-based CRUD operations
+3. Authentication
+4. Laravel Sanctum
+5. Laravel Breeze
+6. Repository Pattern
+7. Clean and reusable code architecture
+
+This project is suitable for learning and demonstrating Laravel backend development practices.
+
+## 📌 Future Improvements
+
+Possible future improvements include:
+
+* Add Product Categories
+* Add Product Images
+* Add Pagination
+* Add Search and Filtering
+* Add API Resources
+* Add Form Requests for validation
+* Add automated tests
+* Add role-based authorization
+* Add API documentation
+* Add Docker support
+
+## 👨‍💻 Author
+Muhammad Farhan
+Developed as a Laravel project to demonstrate **CRUD operations, API development, authentication, and Repository Pattern architecture**.
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
